@@ -4,10 +4,11 @@ class Anagram
     @word = word
   end
 
-  def match(array)
-    array.select do |element|
-      (@word.split("").sort) == (element.split("").sort)
-   end
- end
-
-end
+  def match(find_anagram_in_this_string)
+    puts "Must find #{self.word_to_analyze} inside the following string: #{find_anagram_in_this_string}"
+    find_anagram_in_this_string.find_all do |word|
+      if word.split("").sort == self.word_to_analyze.split("").sort
+        word
+      end
+    end
+  end
